@@ -1,48 +1,43 @@
 const slider = (selector, obj) => {
-	var isDraging = false;		
-	var isDraging2 = false;		
+	var isDraging 	= false,		
+		isDraging2 	= false,		
+		max 		= obj.max,
+		min 		= obj.min;
+
 	const slider = document.querySelectorAll(selector);
 	
-	var max = obj.max,
-		min = obj.min;
 	slider.forEach((id) => {
-		let slide1 = id.querySelector('.slide1'),
-			slide2 = id.querySelector('.slide2'),
-			width = id.clientWidth;
+		let slide1 	= id.querySelector('.slide1'),
+			slide2 	= id.querySelector('.slide2'),
+			width 	= id.clientWidth;
 			
 		id.querySelector('.max').innerHTML = max;
 		id.querySelector('.min').innerHTML = min;
 
-			var x = null;
-			var count = 0;
-			var x2 = null;
-			var count2 = width;
+			var x 			= null,
+				count 		= 0,
+				x2 			= null,
+				slid1_val 	= 0,		
+				slid1_val2 	= 0,
+				slid2_val 	= max,		
+				slid2_val2 	= max,
+				count2 		= width;
 
 			slide1.addEventListener('mousedown', (event) => {
 				event.preventDefault();
 				event.stopPropagation();
 				x = event.clientX;				
-				isDraging = true;				
-				//event.target.style.left = count +'px';				
-			});
-
-			// slide1.addEventListener('mouseup', (event2) => {				
-			// 	event2.preventDefault();
-			// 	event2.stopPropagation();							
-			// 	isDraging = false;				
-			// });
-
+				isDraging = true;
+			});			
 			window.addEventListener('mouseup', (event2) => {				
 				event2.preventDefault();
 				event2.stopPropagation();							
-				isDraging = false;				
+				isDraging 	= false;
+				slid1_val2 	= slid1_val;				
 			});
-
-			window.addEventListener('mousemove', (e) => {
-				
+			window.addEventListener('mousemove', (e) => {				
 				if(isDraging){	
-					count = e.clientX - x;
-					//console.log(count3);
+					count = e.clientX + slid1_val2 * 3 - x;					
 					if(count < 0){
 						count = 0;
 					} else if(count > width) {
@@ -51,50 +46,44 @@ const slider = (selector, obj) => {
 						count = count2-30;
 					}
 				}
-				id.querySelector('.min').innerHTML = Math.floor(max / width * count);
+				slid1_val 	= Math.floor(max / width * count);
+				id.querySelector('.min').innerHTML = slid1_val;
 				slide1.style.left = count +'px';				
 			});	
-		/*
-			//********************************
+		
+			//********************************			
 			slide2.addEventListener('mousedown', (event6) => {
 				event6.preventDefault();
 				event6.stopPropagation();
 				x2 = event.clientX;
-				isDraging2 = true;
-				//event.target.style.left = count +'px';				
+				isDraging2 = true;							
 			});
 
-			slide2.addEventListener('mouseup', (event5) => {				
+			window.addEventListener('mouseup', (event5) => {				
 				event5.preventDefault();
 				event5.stopPropagation();							
 				isDraging2 = false;
-			});
+				slid2_val2 = slide2_val;
+			});			
 
-			slide2.addEventListener('mouseleave', (event4) => {				
-				event4.preventDefault();
-				event4.stopPropagation();							
-				isDraging2 = false;
-			});
-
-			slide2.addEventListener('mousemove', (el) => {			
+			window.addEventListener('mousemove', (el) => {			
 				el.preventDefault();
 				el.stopPropagation();
 				if(isDraging2){
+					count2 = el.clientX + slid2_val2 * 3 - x2;
 
-				count2 += el.clientX - x2;
 					if(count2 < 0){
 						count2 = 0;
 					} else if(count2 > width) {
 						count2 = width;
 					} else if(count2 < count+30){
-						count2 = count+30;
+						count2 = count + 30;
 					}
 				}
-				id.querySelector('.max').innerHTML = Math.floor(max / width * count2);
-				el.target.style.left = count2 +'px';
-			});
-
-			*/
-
+				slide2_val = Math.floor(max / width * count2);
+				id.querySelector('.max').innerHTML = slide2_val;
+				slide2.style.left = count2 +'px';
+			});			
+			
 	});
 }
