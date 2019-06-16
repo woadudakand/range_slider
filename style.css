@@ -1,0 +1,33 @@
+#slider{
+	width: 600px;
+	margin: 300px auto;
+	height: 10px;
+	background: #ddd;
+	position: relative;
+}
+.slide1{
+	width: 14px;
+	height: 14px;
+	background: green;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	margin-top: -7px;
+	cursor: pointer;
+}
+.slide2{
+	width: 14px;
+	height: 14px;
+	background: red;
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	margin-top: -7px;
+	cursor: pointer;
+}
+p.max {
+	float: right;
+}
+p.min {
+	float: left;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Slider</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="slider">
+		<div class="slide1" draggable="true"></div>
+		<div class="slide2"></div>
+		<p class="min"></p>
+		<p class="max"></p>
+	</div>
+	<script src="script.js"></script>
+	<script>
+		slider ('#slider', {
+					max: 200,
+					min: 0
+				});
+	</script>
+</body>
+</html>
