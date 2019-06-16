@@ -37,7 +37,7 @@ const slider = (selector, obj) => {
 			});
 			window.addEventListener('mousemove', (e) => {				
 				if(isDraging){	
-					count = e.clientX + slid1_val2 * 3 - x;					
+					count = e.clientX + slid1_val2 * width / max - x;					
 					if(count < 0){
 						count = 0;
 					} else if(count > width) {
@@ -70,7 +70,7 @@ const slider = (selector, obj) => {
 				el.preventDefault();
 				el.stopPropagation();
 				if(isDraging2){
-					count2 = el.clientX + slid2_val2 * 3 - x2;
+					count2 = el.clientX + slid2_val2 * width / max - x2;
 
 					if(count2 < 0){
 						count2 = 0;
