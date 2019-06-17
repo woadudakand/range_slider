@@ -42,8 +42,8 @@ const slider = (selector, obj) => {
 						count = 0;
 					} else if(count > width) {
 						count = width;
-					} else if(count > count2-30){
-						count = count2-30;
+					} else if(count > count2 - 60){
+						count = count2 - 60;
 					}
 				}
 				slid1_val 	= Math.floor(max / width * count);
@@ -76,13 +76,13 @@ const slider = (selector, obj) => {
 						count2 = 0;
 					} else if(count2 > width) {
 						count2 = width;
-					} else if(count2 < count+30){
-						count2 = count + 30;
+					} else if(count2 < count + 60){
+						count2 = count + 60;
 					}
 				}
 				slide2_val = Math.floor(max / width * count2);
 				id.querySelector('.max').innerHTML = slide2_val;
-				slide2.style.left = count2 +'px';
+				slide2.style.left = count2 - 30 +'px';
 			});			
 			
 	});
