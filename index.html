@@ -5,19 +5,23 @@
 	<title>Slider</title>
 	<link rel="stylesheet" href="style.css">
 </head>
-<body>
-	<div id="slider">
-		<div class="slide1" draggable="true"></div>
-		<div class="slide2"></div>
-		<p class="min"></p>
-		<p class="max"></p>
-	</div>
+<body >
+	<div style="width: 50%; margin: 300px auto;">
+		<div id="slider"></div>
+	</div>	
 	<script src="script.js"></script>
 	<script>
 		slider ('#slider', {
-					max: 500,
-					min: 0
-				});
+					maxValue: 500,
+					minValue: 0,
+					maxWidth: '600px',
+					barColor: '#f5548e',
+					barBorder: 'none',
+					pointerColor: '#f5548e',
+					pointerBorder: '2px solid #fff',
+					fontColor: '#f5548e',
+					fontSize: '20px'
+				});		
 	</script>
 </body>
 </html>

@@ -1,16 +1,9 @@
-#slider{
-	width: 600px;
-	margin: 300px auto;
-	height: 10px;
-	background: #ddd;
-	position: relative;
-	border-radius: 20px
+*{
+	box-sizing: border-box;
 }
 .slide1{
 	width: 30px;
-	height: 8px;
-	background: #e96403;
-	border: 1px solid #6d43a9;
+	height: 10px;	
 	position: absolute;
 	top: 50%;
 	left: 0;
@@ -20,9 +13,7 @@
 }
 .slide2{
 	width: 30px;
-	height: 8px;
-	background: #e96403;
-	border: 1px solid #6d43a9;
+	height: 10px;	
 	position: absolute;
 	top: 50%;
 	right: 0;
