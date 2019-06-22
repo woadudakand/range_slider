@@ -57,7 +57,10 @@ const slider = (selector, obj) => {
 			slide1.addEventListener(down, (event) => {
 				event.preventDefault();
 				event.stopPropagation();
-				x = event.clientX;				
+				x = event.clientX;
+				if ("ontouchstart" in document.documentElement){
+					x = event.touches[0].clientX;		
+				}				
 				isDraging = true;
 				event.target.classList.add('active');
 			});			
@@ -70,7 +73,10 @@ const slider = (selector, obj) => {
 			});
 			window.addEventListener(move, (e) => {				
 				if(isDraging){	
-					count = e.clientX + slid1_val2 * width / max - x;					
+					count = e.clientX + slid1_val2 * width / max - x;
+					if ("ontouchmove" in document.documentElement){
+						count = event.touches[0].clientX + slid1_val2 * width / max - x;		
+					}					
 					if(count < 0){
 						count = 0;
 					} else if(count > width) {
@@ -83,7 +89,7 @@ const slider = (selector, obj) => {
 					slid1_val 	= Math.floor(max / width * count);
 					id.querySelector('.min').innerHTML = slid1_val;
 					id.querySelector('.minimum').value = slid1_val;
-					id.querySelector('.active').style.left = count +'px';				
+					id.querySelector('.active').style.left = count +'px';	
 
 				}
 			});	
