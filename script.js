@@ -3,6 +3,9 @@ const slider = (selector, obj) => {
 		isDraging2 	= false,		
 		max 		= obj.maxValue,
 		min 		= obj.minValue,
+		down 		= 'mousedown',
+		up 			= 'mouseup',
+		move 		= 'mousemove',
 		style = {
 			maxWidth: '600px',
 			width: '100%',			
@@ -18,6 +21,11 @@ const slider = (selector, obj) => {
 		<input type='hidden' class="minimum" name="minimum" value=${min} />
 		<input type='hidden' class="maximum" name="maximum" value=${max} />`;
 
+		if ("ontouchstart" in document.documentElement){
+			down = 'touchstart';
+			up = 'touchend';
+			up = 'touchmove';
+		}
 
 
 	const slider = document.querySelectorAll(selector);
@@ -46,21 +54,21 @@ const slider = (selector, obj) => {
 				slid2_val2 	= max,
 				count2 		= width;
 
-			slide1.addEventListener('mousedown', (event) => {
+			slide1.addEventListener(down, (event) => {
 				event.preventDefault();
 				event.stopPropagation();
 				x = event.clientX;				
 				isDraging = true;
 				event.target.classList.add('active');
 			});			
-			window.addEventListener('mouseup', (event2) => {				
+			window.addEventListener(up, (event2) => {				
 				event2.preventDefault();
 				event2.stopPropagation();							
 				isDraging 	= false;
 				slid1_val2 	= slid1_val;
 				slide1.classList.remove('active');				
 			});
-			window.addEventListener('mousemove', (e) => {				
+			window.addEventListener(move, (e) => {				
 				if(isDraging){	
 					count = e.clientX + slid1_val2 * width / max - x;					
 					if(count < 0){
@@ -81,7 +89,7 @@ const slider = (selector, obj) => {
 			});	
 		
 			//********************************			
-			slide2.addEventListener('mousedown', (event6) => {
+			slide2.addEventListener(down, (event6) => {
 				event6.preventDefault();
 				event6.stopPropagation();
 				x2 = event.clientX;
@@ -89,7 +97,7 @@ const slider = (selector, obj) => {
 				event6.target.classList.add('active2');					
 			});
 
-			window.addEventListener('mouseup', (event5) => {				
+			window.addEventListener(up, (event5) => {				
 				event5.preventDefault();
 				event5.stopPropagation();							
 				slide2.classList.remove('active2');	
@@ -97,7 +105,7 @@ const slider = (selector, obj) => {
 				slid2_val2 = slide2_val;
 			});			
 
-			window.addEventListener('mousemove', (el) => {			
+			window.addEventListener(move, (el) => {			
 				el.preventDefault();
 				el.stopPropagation();
 				if(isDraging2){
