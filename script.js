@@ -22,10 +22,9 @@ const slider = (selector, obj) => {
 		<input type='hidden' class="maximum" name="maximum" value=${max} />`;
 
 		if ("ontouchstart" in document.documentElement){
-			down = 'touchstart';
-			up = 'touchend';
-			up = 'touchmove';
-			alert("your device is Touched");
+			down 	= 'touchstart';
+			up 		= 'touchend';
+			move 	= 'touchmove';			
 		}
 
 
@@ -67,8 +66,7 @@ const slider = (selector, obj) => {
 				event2.stopPropagation();							
 				isDraging 	= false;
 				slid1_val2 	= slid1_val;
-				slide1.classList.remove('active');
-				alert("jfd");
+				slide1.classList.remove('active');				
 			});
 			window.addEventListener(move, (e) => {				
 				if(isDraging){	
