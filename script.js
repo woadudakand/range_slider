@@ -67,7 +67,8 @@ const slider = (selector, obj) => {
 				event2.stopPropagation();							
 				isDraging 	= false;
 				slid1_val2 	= slid1_val;
-				slide1.classList.remove('active');				
+				slide1.classList.remove('active');
+				alert("jfd");
 			});
 			window.addEventListener(move, (e) => {				
 				if(isDraging){	
