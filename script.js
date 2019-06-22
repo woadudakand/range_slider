@@ -100,6 +100,9 @@ const slider = (selector, obj) => {
 				event6.stopPropagation();
 				x2 = event.clientX;
 				isDraging2 = true;
+				if ("ontouchstart" in document.documentElement){
+					x2 = event.touches[0].clientX;		
+				}
 				event6.target.classList.add('active2');					
 			});
 
@@ -116,6 +119,9 @@ const slider = (selector, obj) => {
 				el.stopPropagation();
 				if(isDraging2){
 					count2 = el.clientX + slid2_val2 * width / max - x2;
+					if ("ontouchmove" in document.documentElement){
+						count2 = el.touches[0].clientX + slid2_val2 * width / max - x2;		
+					}
 
 					if(count2 < 0){
 						count2 = 0;
