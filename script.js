@@ -25,6 +25,7 @@ const slider = (selector, obj) => {
 			down = 'touchstart';
 			up = 'touchend';
 			up = 'touchmove';
+			alert("your device is Touched");
 		}
 
 
