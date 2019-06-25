@@ -6,14 +6,7 @@ const slider = (selector, obj) => {
 		down 		= 'mousedown',
 		up 			= 'mouseup',
 		move 		= 'mousemove',
-		style = {
-			maxWidth: '600px',
-			width: '100%',			
-			height: '10px',
-			background: '#ddd',
-			position: 'relative',
-			borderRadius: '20px'
-		},
+		
 		div = `<div class="slide1" draggable="true"></div>
 		<div class="slide2"></div>
 		<p class="min" style="color : ${obj.fontColor}; font-size: ${obj.fontSize} "></p>
@@ -54,6 +47,9 @@ const slider = (selector, obj) => {
 				slid2_val2 	= max,
 				count2 		= width;
 
+			if(window.outerWidth < 600){
+				id.classList.add('m-device');				
+			}
 			slide1.addEventListener(down, (event) => {
 				event.preventDefault();
 				event.stopPropagation();
