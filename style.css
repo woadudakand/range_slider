@@ -22,7 +22,7 @@
 	border-radius: 10px
 }
 .m-device{
-	transform: scaleY(1.4);
+	transform: scaleY(2);
 }
 p.max {
 	float: right;
