@@ -79,8 +79,6 @@ const slider = (selector, obj) => {
 					}					
 					if(count < 0){
 						count = 0;
-					} else if(count > width) {
-						count = width;
 					} else if(count > count2 - 60){
 						count = count2 - 60;
 					}
@@ -123,9 +121,7 @@ const slider = (selector, obj) => {
 						count2 = el.touches[0].clientX + slid2_val2 * width / max - x2;		
 					}
 
-					if(count2 < 0){
-						count2 = 0;
-					} else if(count2 > width) {
+					if(count2 > width) {
 						count2 = width;
 					} else if(count2 < count + 60){
 						count2 = count + 60;
