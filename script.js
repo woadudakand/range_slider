@@ -48,7 +48,9 @@ const slider = (selector, obj) => {
 				count2 		= width;
 
 			if(window.outerWidth < 600){
-				id.classList.add('m-device');				
+				id.classList.add('m-device');
+				slide1.classList.add('m-device2');
+				slide2.classList.add('m-device2');
 			}
 			slide1.addEventListener(down, (event) => {
 				event.preventDefault();

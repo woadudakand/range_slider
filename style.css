@@ -24,6 +24,9 @@
 .m-device{
 	transform: scaleY(2);
 }
+.m-device2{
+	transform: scaleX(2);
+}
 p.max {
 	float: right;
 }
